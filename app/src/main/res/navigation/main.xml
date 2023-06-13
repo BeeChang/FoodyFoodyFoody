@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/recipesFragment">
+
+    <fragment
+        android:id="@+id/recipesFragment"
+        android:name="com.example.beechang.foodyfoodyfoody.recipe.RecipesFragment"
+        android:label="Recipes"
+        tools:layout="@layout/fragment_recipes">
+        <argument
+            android:name="backFromBottomSheet"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_recipesFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteRecipesFragment"
+        android:name="com.example.beechang.foodyfoodyfoody.favorite.FavoriteRecipesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorite_recipes">
+        <action
+            android:id="@+id/action_favoriteRecipesFragment_to_detailsActivity"
+            app:destination="@id/detailsActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/detailsActivity"
+        android:name="com.example.beechang.foodyfoodyfoody.detail.DetailsActivity"
+        android:label="Details"
+        tools:layout="@layout/activity_details">
+        <argument
+            android:name="result"
+            app:argType="com.example.beechang.foodyfoodyfoody.model.Result" />
+    </activity>
+
+
+</navigation>
