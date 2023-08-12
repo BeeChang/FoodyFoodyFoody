@@ -3,21 +3,14 @@ package com.example.beechang.foodyfoodyfoody.database
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.example.beechang.foodyfoodyfoody.test.MainDispatcherRule
 import com.example.beechang.foodyfoodyfoody.test.MockData
-import com.example.foodyfoody.database.TypeResponseConverter
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestScope
 import org.hamcrest.MatcherAssert
-import org.hamcrest.core.Is
 import org.hamcrest.core.Is.`is`
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -49,6 +42,7 @@ class RecipesDatabaseTest {
         recipesDao.insertFavoriteRecipe(mockData)
 
         val savedMockData = recipesDao.readFavoriteRecipes()
+
         MatcherAssert.assertThat(savedMockData.toString(), `is`(savedMockData.toString()))
     }
 
@@ -59,6 +53,7 @@ class RecipesDatabaseTest {
         recipesDao.deleteFavoriteRecipe(mockData)
 
         val savedMockData = recipesDao.readFavoriteRecipes()
+
         assertTrue(!savedMockData.contains(mockData))
     }
 
