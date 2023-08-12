@@ -31,5 +31,8 @@ object MockData {
         1, mockFoodResult()
     )
 
+    fun mockJsonString(key : String , value : String ) = """{ "$key": "$value" }"""
+
+    fun mockInvalidJsonString(key : String , value : String ) = """{ "$key": "$value" """
 
 }
