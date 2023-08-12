@@ -32,6 +32,7 @@ dependencies {
     testImplementation(libs.mockito.inline)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.coroutines)
+    testImplementation(libs.robolectric)
 
     implementation(libs.sandwich)
     implementation(libs.coroutines)
