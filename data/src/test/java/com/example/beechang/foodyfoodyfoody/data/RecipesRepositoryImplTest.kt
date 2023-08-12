@@ -49,8 +49,8 @@ class RecipesRepositoryImplTest {
 
         recipesRepository.getRecipes().test {
             val expectItem = awaitItem()[0]
-            Assert.assertEquals(expectItem.recipeId, 1)
-            Assert.assertEquals(expectItem.title, "title")
+            assertEquals(expectItem.recipeId, 1)
+            assertEquals(expectItem.title, "title")
             awaitComplete()
         }
 
