@@ -1,6 +1,7 @@
 package com.example.beechang.foodyfoodyfoody.network
 
 import com.skydoves.sandwich.ApiResponse
+import retrofit2.Response
 import javax.inject.Inject
 
 class FoodRecipesRetrofitClient @Inject constructor(
@@ -14,6 +15,5 @@ class FoodRecipesRetrofitClient @Inject constructor(
         fillIngredients: String = "true"
     ): ApiResponse<FoodRecipesResponse> =
         foodRecipesService.getRecipes(search, number, type, addRecipeInformation, fillIngredients)
-
 
 }

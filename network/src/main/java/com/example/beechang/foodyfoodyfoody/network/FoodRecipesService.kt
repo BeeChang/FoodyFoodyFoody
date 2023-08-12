@@ -1,7 +1,5 @@
 package com.example.beechang.foodyfoodyfoody.network
 
-import com.example.beechang.foodyfoodyfoody.network.API_KEY
-import com.example.beechang.foodyfoodyfoody.network.FoodRecipesResponse
 import com.skydoves.sandwich.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -15,9 +13,7 @@ interface FoodRecipesService {
         @Query("type") type : String = "main course",
         @Query("addRecipeInformation") addRecipeInformation : String = "true",
         @Query("fillIngredients") fillIngredients : String = "true",
-        @Query("apiKey") apiKey: String = API_KEY,
+        @Query("apiKey") apiKey: String = API_KEY
     ): ApiResponse<FoodRecipesResponse>
-
-
 
 }
