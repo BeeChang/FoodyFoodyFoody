@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.beechang.foodyfoodyfoody.base.BaseViewModel
 import com.example.beechang.foodyfoodyfoody.data.repository.FavoriteRepository
 import com.example.beechang.foodyfoodyfoody.model.Favorites
+import com.example.beechang.foodyfoodyfoody.recipe.RecipesViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -29,6 +30,8 @@ class FavoriteViewModel @Inject constructor(
                 } else {
                     FavoriteUiState.GetFavorite(favorites)
                 }
+            }.handleErrors { errorMassage ->
+                _favorite.update { FavoriteUiState.ShowError(errorMassage) }
             }
             .collect { favorites ->
                 _favorite.update { favorites }
@@ -43,6 +46,7 @@ class FavoriteViewModel @Inject constructor(
     }
 
     sealed class FavoriteUiState {
+        data class ShowError(val errorMassage: String) : FavoriteUiState()
         object FavoriteEmpty : FavoriteUiState()
         data class GetFavorite(val favorites: List<Favorites>) : FavoriteUiState()
      }

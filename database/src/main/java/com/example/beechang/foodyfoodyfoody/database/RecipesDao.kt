@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface RecipesDao {
+interface RecipesDao : DBDao{
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRecipes(recipesEntity: RecipesEntity)
