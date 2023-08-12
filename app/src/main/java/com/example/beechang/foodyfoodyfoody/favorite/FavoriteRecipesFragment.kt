@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -27,6 +28,10 @@ class FavoriteRecipesFragment : BaseFragment<FragmentFavoriteRecipesBinding>(R.l
         binding.favoriteRecipesRecyclerView.adapter = mAdapter
         binding.favoriteRecipesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         favoriteUiState()
+    }
+
+    override fun onResume() {
+        super.onResume()
         getFavorites()
     }
 
@@ -52,6 +57,11 @@ class FavoriteRecipesFragment : BaseFragment<FragmentFavoriteRecipesBinding>(R.l
                             binding.noDataTextView.visibility = View.INVISIBLE
                             mAdapter.setData(uiState.favorites)
                         }
+
+                        is FavoriteViewModel.FavoriteUiState.ShowError -> {
+                            Toast.makeText(context, uiState.errorMassage, Toast.LENGTH_SHORT).show()
+                        }
+
                     }
                 }
             }
