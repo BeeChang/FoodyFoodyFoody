@@ -59,18 +59,15 @@ class FoodRecipesServiceTest {
     fun `WHEN getRecipes is called EXPECT to match the mock response`() = runBlocking {
         val expectedResults = MockData.mockResultList()
         val expectedResponse = FoodRecipesResponse(1, 0, expectedResults, 1)
-
         val jsonAdapter = moshi.adapter(FoodRecipesResponse::class.java)
         val jsonResponse = jsonAdapter.toJson(expectedResponse)
-
         val mockResponse = MockResponse()
             .setBody(jsonResponse)
             .setResponseCode(200)
-
         mockWebServer.enqueue(mockResponse)
-
         val response = service.getRecipes("", "1")
         val responseBody = requireNotNull((response as ApiResponse.Success).data)
+
         val mockResult = responseBody.results
 
         MatcherAssert.assertThat(mockResult[0].recipeId ,  Is.`is`(1))
