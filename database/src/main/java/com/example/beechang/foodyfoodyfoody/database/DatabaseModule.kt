@@ -2,7 +2,6 @@ package com.example.beechang.foodyfoodyfoody.database
 
 import android.content.Context
 import androidx.room.Room
-import com.example.foodyfoody.database.TypeResponseConverter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
