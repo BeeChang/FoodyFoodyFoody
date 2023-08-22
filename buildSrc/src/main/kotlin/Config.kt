@@ -5,6 +5,7 @@ object Config {
     const val nameModel = "com.example.beechang.foodyfoodyfoody.model"
     const val nameData = "com.example.beechang.foodyfoodyfoody.data"
     const val nameTest = "com.example.beechang.foodyfoodyfoody.test"
+    const val nameDomain = "com.example.beechang.foodyfoodyfoody.domain"
     const val compileSdk = 33
     const val targetSdk = 33
     const val minSdk = 28
