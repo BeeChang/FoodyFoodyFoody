@@ -31,8 +31,8 @@ object DatabaseModule {
     ): RecipesDatabase {
         return Room
             .databaseBuilder(context, RecipesDatabase::class.java, DATABASE_NAME)
-            .fallbackToDestructiveMigration()
             .addTypeConverter(typeResponseConverter)
+            .addMigrations(migration1to2)
             .build()
     }
 
