@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.beechang.foodyfoodyfoody.R
 import com.example.beechang.foodyfoodyfoody.base.BaseFragment
 import com.example.beechang.foodyfoodyfoody.databinding.FragmentIngredientsBinding
-import com.example.beechang.foodyfoodyfoody.model.Result
+import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 import com.example.beechang.foodyfoodyfoody.utils.Constants.Companion.RECIPE_RESULT_KEY
 
 class IngredientsFragment : BaseFragment<FragmentIngredientsBinding>(R.layout.fragment_ingredients) {
@@ -13,7 +13,7 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding>(R.layout.fr
 
     override fun initView() {
         val args = arguments
-        val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
+        val myBundle: FoodyResult? = args?.getParcelable(RECIPE_RESULT_KEY)
         binding.ingredientsRecyclerview.adapter = mAdapter
         binding.ingredientsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         myBundle?.extendedIngredients?.let { mAdapter.setData(it) }

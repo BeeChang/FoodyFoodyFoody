@@ -68,7 +68,7 @@ class FoodRecipesServiceTest {
         val response = service.getRecipes("", "1")
         val responseBody = requireNotNull((response as ApiResponse.Success).data)
 
-        val mockResult = responseBody.results
+        val mockResult = responseBody.foodyResults
 
         MatcherAssert.assertThat(mockResult[0].recipeId ,  Is.`is`(1))
         MatcherAssert.assertThat(mockResult[0].title ,  Is.`is`("title"))

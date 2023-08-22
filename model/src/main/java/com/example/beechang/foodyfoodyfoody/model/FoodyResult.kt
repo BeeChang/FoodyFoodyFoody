@@ -1,14 +1,13 @@
 package com.example.beechang.foodyfoodyfoody.model
 
 import android.os.Parcelable
-import com.example.beechang.foodyfoodyfoody.model.ExtendedIngredient
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
 @Parcelize
-data class Result(
+data class FoodyResult(
     @Json(name = "aggregateLikes")
     val aggregateLikes: Int,
     @Json(name = "cheap")

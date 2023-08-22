@@ -35,7 +35,7 @@
 
                 <ImageView
                     android:id="@+id/favorite_recipe_imageView"
-                    loadImageFromUrl="@{favorites.result.image}"
+                    loadImageFromUrl="@{favorites.foodyResult.image}"
                     android:layout_width="200dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -54,7 +54,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/courgette"
                     android:maxLines="2"
-                    android:text="@{favorites.result.title}"
+                    android:text="@{favorites.foodyResult.title}"
                     android:textColor="@color/darker"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -70,7 +70,7 @@
                     android:layout_marginTop="12dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    parseHtml="@{favorites.result.summary}"
+                    parseHtml="@{favorites.foodyResult.summary}"
                     android:textColor="@color/darkGray"
                     app:layout_constraintEnd_toEndOf="@+id/favorite_title_textView"
                     app:layout_constraintStart_toStartOf="@+id/favorite_title_textView"
@@ -91,7 +91,7 @@
 
                 <TextView
                     android:id="@+id/favorite_heart_textView"
-                    setNumberOfLikes="@{favorites.result.aggregateLikes}"
+                    setNumberOfLikes="@{favorites.foodyResult.aggregateLikes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100"
@@ -112,7 +112,7 @@
 
                 <TextView
                     android:id="@+id/favorite_clock_textView"
-                    setNumberOfMinutes="@{favorites.result.readyInMinutes}"
+                    setNumberOfMinutes="@{favorites.foodyResult.readyInMinutes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -124,7 +124,7 @@
 
                 <ImageView
                     android:id="@+id/favorite_leaf_imageView"
-                    applyVeganColor="@{favorites.result.vegan}"
+                    applyVeganColor="@{favorites.foodyResult.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@+id/favorite_leaf_textView"
@@ -134,7 +134,7 @@
 
                 <TextView
                     android:id="@+id/favorite_leaf_textView"
-                    applyVeganColor="@{favorites.result.vegan}"
+                    applyVeganColor="@{favorites.foodyResult.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"

@@ -3,7 +3,7 @@ package com.example.beechang.foodyfoodyfoody.database
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.example.beechang.foodyfoodyfoody.model.FoodRecipe
-import com.example.beechang.foodyfoodyfoody.model.Result
+import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
@@ -15,7 +15,7 @@ class TypeResponseConverter @Inject constructor(
 ) {
 
     private val foodRecipeAdapter: JsonAdapter<FoodRecipe> = moshi.adapter(FoodRecipe::class.java)
-    private val resultAdapter: JsonAdapter<Result> = moshi.adapter(Result::class.java)
+    private val foodyResultAdapter: JsonAdapter<FoodyResult> = moshi.adapter(FoodyResult::class.java)
 
     @TypeConverter
     fun foodRecipeToString(foodRecipe: FoodRecipe): String {
@@ -28,12 +28,12 @@ class TypeResponseConverter @Inject constructor(
     }
 
     @TypeConverter
-    fun resultToString(result: Result): String {
-        return resultAdapter.toJson(result)
+    fun resultToString(foodyResult: FoodyResult): String {
+        return foodyResultAdapter.toJson(foodyResult)
     }
 
     @TypeConverter
-    fun stringToResult(data: String): Result {
-        return resultAdapter.fromJson(data)!!
+    fun stringToResult(data: String): FoodyResult {
+        return foodyResultAdapter.fromJson(data)!!
     }
 }

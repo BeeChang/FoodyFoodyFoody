@@ -67,7 +67,7 @@ class FavoriteRecipesAdapter(
             } else {
                  val action =
                     FavoriteRecipesFragmentDirections.actionFavoriteRecipesFragmentToDetailsActivity(
-                        currentRecipe.result
+                        currentRecipe.foodyResult
                     )
                 holder.itemView.findNavController().navigate(action)
             }

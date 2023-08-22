@@ -10,7 +10,7 @@ import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.beechang.foodyfoodyfoody.R
-import com.example.beechang.foodyfoodyfoody.model.Result
+import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 import com.example.beechang.foodyfoodyfoody.recipe.RecipesFragmentDirections
 import org.jsoup.Jsoup
 
@@ -22,11 +22,11 @@ class RecipesRowBinding {
     companion object {
         @BindingAdapter("onRecipeClickListener")
         @JvmStatic
-        fun onRecipeClickListener(recipeRowLayout: ConstraintLayout, result: Result) {
+        fun onRecipeClickListener(recipeRowLayout: ConstraintLayout, foodyResult: FoodyResult) {
             recipeRowLayout.setOnClickListener {
                 try {
                     val action =
-                        RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(result)
+                        RecipesFragmentDirections.actionRecipesFragmentToDetailsActivity(foodyResult)
                     recipeRowLayout.findNavController().navigate(action)
                 } catch (e: Exception) {
                     Log.e("onRecipeClickListener", e.toString())

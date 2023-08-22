@@ -5,11 +5,11 @@ import com.example.beechang.foodyfoodyfoody.model.Favorites
 object FavoriteEntityMapper : EntityMapper<Favorites, FavoritesEntity> {
 
     override fun asEntity(domain: Favorites): FavoritesEntity =
-        FavoritesEntity(domain.id, domain.result)
+        FavoritesEntity(domain.id, domain.foodyResult)
 
 
     override fun asDomain(entity: FavoritesEntity): Favorites =
-        Favorites(entity.id, entity.result)
+        Favorites(entity.id, entity.foodyResult)
 }
 
 fun Favorites.asEntity(): FavoritesEntity = FavoriteEntityMapper.asEntity(this)

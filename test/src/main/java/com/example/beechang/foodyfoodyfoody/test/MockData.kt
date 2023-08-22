@@ -1,12 +1,12 @@
 package com.example.beechang.foodyfoodyfoody.test
 
 import com.example.beechang.foodyfoodyfoody.model.Favorites
-import com.example.beechang.foodyfoodyfoody.model.Result
+import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 
 
 object MockData {
 
-    fun mockFoodResult() = Result(
+    fun mockFoodResult() = FoodyResult(
         10,
         false,
         false,

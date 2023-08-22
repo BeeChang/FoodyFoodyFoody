@@ -2,7 +2,7 @@ package com.example.beechang.foodyfoodyfoody.data.repository
 
 import com.example.beechang.foodyfoodyfoody.data.provideErrorType
 import com.example.beechang.foodyfoodyfoody.model.ApiException
-import com.example.beechang.foodyfoodyfoody.model.Result
+import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 import com.example.beechang.foodyfoodyfoody.network.Dispatcher
 import com.example.beechang.foodyfoodyfoody.network.FoodRecipesRetrofitClient
 import com.example.beechang.foodyfoodyfoody.network.FoodyDispatchers
@@ -22,10 +22,10 @@ class RecipesRepositoryImpl @Inject constructor(
 ) : RecipesRepository {
     override fun getRecipes(
         searchWord: String,
-    ): Flow<List<Result>> = flow {
+    ): Flow<List<FoodyResult>> = flow {
 
         recipesClient.fetchFoodRecipes(searchWord).suspendOnSuccess {
-            emit(data.results)
+            emit(data.foodyResults)
         }.suspendOnError {
             throw provideErrorType(response.code() , response.errorBody()?.string() , response.message() )
         }.suspendOnException {

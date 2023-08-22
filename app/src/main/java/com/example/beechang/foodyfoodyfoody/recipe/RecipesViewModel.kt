@@ -1,16 +1,13 @@
 package com.example.beechang.foodyfoodyfoody.recipe
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.beechang.foodyfoodyfoody.base.BaseViewModel
 import com.example.beechang.foodyfoodyfoody.data.repository.RecipesRepository
-import com.example.beechang.foodyfoodyfoody.model.Result
+import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -44,7 +41,7 @@ class RecipesViewModel @Inject constructor(
 
     sealed class RecipeUiState {
         data class ShowError(val errorMassage: String) : RecipeUiState()
-        data class RecipesListUpdate(val recipes: List<Result>) : RecipeUiState()
+        data class RecipesListUpdate(val recipes: List<FoodyResult>) : RecipeUiState()
         object Loading : RecipeUiState()
     }
 }

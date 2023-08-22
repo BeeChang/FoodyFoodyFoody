@@ -6,16 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beechang.foodyfoodyfoody.databinding.RecipesRowLayoutBinding
 import com.example.foodyfoody.recipe.RecipesDiffUtil
-import com.example.beechang.foodyfoodyfoody.model.Result
+import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
-    private var recipes = emptyList<Result>()
+    private var recipes = emptyList<FoodyResult>()
 
     class MyViewHolder(private val binding: RecipesRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(result: Result){
-            binding.result = result
+        fun bind(foodyResult: FoodyResult){
+            binding.result = foodyResult
             binding.executePendingBindings()
         }
 
@@ -41,7 +41,7 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
         return recipes.size
     }
 
-    fun setData(newData: List<Result>){
+    fun setData(newData: List<FoodyResult>){
         val recipesDiffUtil = RecipesDiffUtil(recipes, newData)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
         recipes = newData
