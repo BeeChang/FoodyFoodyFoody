@@ -14,6 +14,7 @@ import androidx.navigation.navArgs
 import com.example.beechang.foodyfoodyfoody.R
 import com.example.beechang.foodyfoodyfoody.databinding.ActivityDetailsBinding
 import com.example.beechang.foodyfoodyfoody.model.Favorites
+import com.example.beechang.foodyfoodyfoody.model.ui.FavoritesUiModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -113,7 +114,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun saveToFavorites(item: MenuItem) {
         lifecycleScope.launch {
-            detailViewModel.insertFavoriteRecipe(Favorites(0, args.result))
+            detailViewModel.insertFavoriteRecipe(FavoritesUiModel(0, args.result))
             changeMenuItemColor(item, R.color.yellow)
             showSnackBar("Recipe saved.")
             recipeSaved = true
@@ -122,7 +123,7 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun removeFromFavorites(item: MenuItem) {
         lifecycleScope.launch {
-            detailViewModel.deleteFavoriteRecipe(Favorites(savedRecipeId, args.result))
+            detailViewModel.deleteFavoriteRecipe(FavoritesUiModel(savedRecipeId, args.result))
             changeMenuItemColor(item, R.color.white)
             showSnackBar("Removed from Favorites.")
             recipeSaved = false

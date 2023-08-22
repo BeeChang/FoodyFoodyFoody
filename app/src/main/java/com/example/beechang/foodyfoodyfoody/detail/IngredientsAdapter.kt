@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.beechang.foodyfoodyfoody.R
 import com.example.beechang.foodyfoodyfoody.databinding.IngredientsRowLayoutBinding
 import com.example.beechang.foodyfoodyfoody.model.ExtendedIngredient
+import com.example.beechang.foodyfoodyfoody.model.ui.ExtendedIngredientUiModel
 import com.example.beechang.foodyfoodyfoody.utils.Constants.Companion.BASE_IMAGE_URL
 import com.example.beechang.foodyfoodyfoody.utils.RecipesDiffUtil
 
@@ -15,7 +16,7 @@ import java.util.Locale
 
 class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.MyViewHolder>() {
 
-    private var ingredientsList = emptyList<ExtendedIngredient>()
+    private var ingredientsList = emptyList<ExtendedIngredientUiModel>()
 
     class MyViewHolder(val binding: IngredientsRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -45,7 +46,7 @@ class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.MyViewHolder>
         return ingredientsList.size
     }
 
-    fun setData(newIngredients: List<ExtendedIngredient>) {
+    fun setData(newIngredients: List<ExtendedIngredientUiModel>) {
         val ingredientsDiffUtil =
             RecipesDiffUtil(ingredientsList, newIngredients)
         val diffUtilResult = DiffUtil.calculateDiff(ingredientsDiffUtil)

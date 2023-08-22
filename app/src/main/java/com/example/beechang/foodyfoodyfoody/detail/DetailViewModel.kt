@@ -3,7 +3,10 @@ package com.example.beechang.foodyfoodyfoody.detail
 
 import com.example.beechang.foodyfoodyfoody.base.BaseViewModel
 import com.example.beechang.foodyfoodyfoody.data.repository.FavoriteRepository
+import com.example.beechang.foodyfoodyfoody.domain.CreateFavoriteRecipeUseCase
+import com.example.beechang.foodyfoodyfoody.domain.DeleteFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.model.Favorites
+import com.example.beechang.foodyfoodyfoody.model.ui.FavoritesUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,7 +17,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val favoriteRepository: FavoriteRepository
+    private val favoriteRepository: FavoriteRepository ,
+    private val createFavoriteRecipeUseCase: CreateFavoriteRecipeUseCase ,
+    private val deleteFavoriteRecipeUseCase: DeleteFavoriteRecipeUseCase ,
     ) : BaseViewModel() {
 
     private val _favorite = MutableStateFlow<FavoriteUiState>(FavoriteUiState.Loading)
@@ -29,11 +34,13 @@ class DetailViewModel @Inject constructor(
             }
     }
 
-    suspend fun insertFavoriteRecipe(favorites: Favorites) =
-        favoriteRepository.insertFavoriteRecipes(favorites)
+    suspend fun insertFavoriteRecipe(favorites: FavoritesUiModel) =
+        createFavoriteRecipeUseCase(favorites)
+//        favoriteRepository.insertFavoriteRecipes(favorites)
 
-    suspend fun deleteFavoriteRecipe(favorites: Favorites) =
-        favoriteRepository.deleteFavoriteRecipes(favorites)
+    suspend fun deleteFavoriteRecipe(favorites: FavoritesUiModel) =
+        deleteFavoriteRecipeUseCase(favorites)
+//        favoriteRepository.deleteFavoriteRecipes(favorites)
 
 
     sealed class FavoriteUiState {

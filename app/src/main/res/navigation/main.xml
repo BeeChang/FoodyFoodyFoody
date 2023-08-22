@@ -35,7 +35,7 @@
         tools:layout="@layout/activity_details">
         <argument
             android:name="result"
-            app:argType="com.example.beechang.foodyfoodyfoody.model.FoodyResult" />
+            app:argType="com.example.beechang.foodyfoodyfoody.model.ui.FoodyUiModel" />
     </activity>
 
 

@@ -7,13 +7,14 @@ import com.example.beechang.foodyfoodyfoody.R
 import com.example.beechang.foodyfoodyfoody.base.BaseFragment
 import com.example.beechang.foodyfoodyfoody.databinding.FragmentOverviewBinding
 import com.example.beechang.foodyfoodyfoody.model.FoodyResult
+import com.example.beechang.foodyfoodyfoody.model.ui.FoodyUiModel
 import org.jsoup.Jsoup
 
 class OverviewFragment : BaseFragment<FragmentOverviewBinding>(R.layout.fragment_overview) {
 
     override fun initView() {
         val args = arguments
-        val myBundle: FoodyResult? = args?.getParcelable("recipeBundle")
+        val myBundle: FoodyUiModel? = args?.getParcelable("recipeBundle")
 
         Glide.with(requireActivity())
             .load(myBundle?.image)

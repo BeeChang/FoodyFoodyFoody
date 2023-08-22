@@ -6,7 +6,7 @@
     <data>
         <variable
             name="result"
-            type="com.example.beechang.foodyfoodyfoody.model.FoodyResult" />
+            type="com.example.beechang.foodyfoodyfoody.model.ui.FoodyUiModel" />
     </data>
 
      <androidx.constraintlayout.widget.ConstraintLayout

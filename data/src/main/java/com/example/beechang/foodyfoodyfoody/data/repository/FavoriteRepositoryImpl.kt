@@ -18,7 +18,6 @@ class FavoriteRepositoryImpl @Inject constructor(
     @Dispatcher(FoodyDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
 ) : FavoriteRepository {
 
-
     override suspend fun insertFavoriteRecipes(favorites: Favorites) {
         recipesDao.insertFavoriteRecipe(favorites.asEntity())
     }

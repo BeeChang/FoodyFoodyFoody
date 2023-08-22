@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.beechang.foodyfoodyfoody.R
 import com.example.beechang.foodyfoodyfoody.databinding.FavoriteRecipesRowLayoutBinding
 import com.example.beechang.foodyfoodyfoody.model.Favorites
+import com.example.beechang.foodyfoodyfoody.model.ui.FavoritesUiModel
 import com.example.beechang.foodyfoodyfoody.utils.RecipesDiffUtil
 
 import com.google.android.material.snackbar.Snackbar
@@ -26,17 +27,17 @@ class FavoriteRecipesAdapter(
     private lateinit var mActionMode: ActionMode
     private lateinit var rootView: View
 
-    private var selectedRecipes = arrayListOf<Favorites>()
+    private var selectedRecipes = arrayListOf<FavoritesUiModel>()
     private var myViewHolders = arrayListOf<MyViewHolder>()
-    private var favoriteRecipes = emptyList<Favorites>()
+    private var favoriteRecipes = emptyList<FavoritesUiModel>()
 
     private var multiSelection = false
 
     class MyViewHolder(internal val binding: FavoriteRecipesRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(favorites : Favorites) {
-            binding.favorites = favorites
+        fun bind(favoritesUiModel: FavoritesUiModel) {
+            binding.favorites = favoritesUiModel
             binding.executePendingBindings()
         }
 
@@ -67,7 +68,7 @@ class FavoriteRecipesAdapter(
             } else {
                  val action =
                     FavoriteRecipesFragmentDirections.actionFavoriteRecipesFragmentToDetailsActivity(
-                        currentRecipe.foodyResult
+                        currentRecipe.foodyUiModel
                     )
                 holder.itemView.findNavController().navigate(action)
             }
@@ -87,7 +88,7 @@ class FavoriteRecipesAdapter(
     }
 
 
-    private fun applySelection(holder: MyViewHolder, currentRecipe: Favorites) {
+    private fun applySelection(holder: MyViewHolder, currentRecipe: FavoritesUiModel) {
         if (selectedRecipes.contains(currentRecipe)) {
             selectedRecipes.remove(currentRecipe)
             changeRecipeStyle(holder, R.color.cardBackgroundColor, R.color.strokeColor)
@@ -167,7 +168,7 @@ class FavoriteRecipesAdapter(
             ContextCompat.getColor(requireActivity, color)
     }
 
-    fun setData(newFavoriteRecipes: List<Favorites>) {
+    fun setData(newFavoriteRecipes: List<FavoritesUiModel>) {
         val favoriteRecipesDiffUtil =
             RecipesDiffUtil(favoriteRecipes, newFavoriteRecipes)
         val diffUtilResult = DiffUtil.calculateDiff(favoriteRecipesDiffUtil)
