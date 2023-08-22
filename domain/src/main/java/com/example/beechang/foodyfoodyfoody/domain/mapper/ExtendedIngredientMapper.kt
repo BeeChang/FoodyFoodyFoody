@@ -11,3 +11,12 @@ internal fun ExtendedIngredient.asUiModel() = ExtendedIngredientUiModel(
     original = this.original,
     unit = this.unit
 )
+
+internal fun ExtendedIngredientUiModel.asDomain() = ExtendedIngredient(
+    amount = this.amount,
+    consistency = this.consistency,
+    image = this.image,
+    name = this.name,
+    original = this.original,
+    unit = this.unit
+)
