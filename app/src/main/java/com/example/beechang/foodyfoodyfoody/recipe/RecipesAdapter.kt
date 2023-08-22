@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beechang.foodyfoodyfoody.databinding.RecipesRowLayoutBinding
-import com.example.foodyfoody.recipe.RecipesDiffUtil
+import com.example.beechang.foodyfoodyfoody.utils.RecipesDiffUtil
 import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 

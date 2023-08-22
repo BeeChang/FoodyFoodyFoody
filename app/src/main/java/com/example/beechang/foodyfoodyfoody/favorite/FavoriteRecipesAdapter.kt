@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.beechang.foodyfoodyfoody.R
 import com.example.beechang.foodyfoodyfoody.databinding.FavoriteRecipesRowLayoutBinding
 import com.example.beechang.foodyfoodyfoody.model.Favorites
-import com.example.foodyfoody.recipe.RecipesDiffUtil
+import com.example.beechang.foodyfoodyfoody.utils.RecipesDiffUtil
 
 import com.google.android.material.snackbar.Snackbar
 

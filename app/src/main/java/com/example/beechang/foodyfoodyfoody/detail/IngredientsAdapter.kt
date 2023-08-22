@@ -9,7 +9,7 @@ import com.example.beechang.foodyfoodyfoody.R
 import com.example.beechang.foodyfoodyfoody.databinding.IngredientsRowLayoutBinding
 import com.example.beechang.foodyfoodyfoody.model.ExtendedIngredient
 import com.example.beechang.foodyfoodyfoody.utils.Constants.Companion.BASE_IMAGE_URL
-import com.example.foodyfoody.recipe.RecipesDiffUtil
+import com.example.beechang.foodyfoodyfoody.utils.RecipesDiffUtil
 
 import java.util.Locale
 

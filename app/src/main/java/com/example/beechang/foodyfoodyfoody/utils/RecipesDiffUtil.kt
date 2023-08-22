@@ -1,4 +1,4 @@
-package com.example.foodyfoody.recipe
+package com.example.beechang.foodyfoodyfoody.utils
 
 import androidx.recyclerview.widget.DiffUtil
 
