@@ -2,10 +2,9 @@ package com.example.beechang.foodyfoodyfoody.detail
 
 
 import com.example.beechang.foodyfoodyfoody.base.BaseViewModel
-import com.example.beechang.foodyfoodyfoody.data.repository.FavoriteRepository
 import com.example.beechang.foodyfoodyfoody.domain.CreateFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.domain.DeleteFavoriteRecipeUseCase
-import com.example.beechang.foodyfoodyfoody.model.Favorites
+import com.example.beechang.foodyfoodyfoody.domain.GetFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.model.ui.FavoritesUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val favoriteRepository: FavoriteRepository ,
+    private val getFavoriteRecipeUseCase: GetFavoriteRecipeUseCase ,
     private val createFavoriteRecipeUseCase: CreateFavoriteRecipeUseCase ,
     private val deleteFavoriteRecipeUseCase: DeleteFavoriteRecipeUseCase ,
     ) : BaseViewModel() {
@@ -26,7 +25,7 @@ class DetailViewModel @Inject constructor(
     val favoriteState: StateFlow<FavoriteUiState> = _favorite.asStateFlow()
 
     suspend fun checkFavoriteRecipe() {
-        favoriteRepository.selectFavoriteRecipes()
+        getFavoriteRecipeUseCase.invoke()
             .collect { favorites ->
                 _favorite.update {
                     FavoriteUiState.checkFavoriteRecipes(favorites)
@@ -36,15 +35,13 @@ class DetailViewModel @Inject constructor(
 
     suspend fun insertFavoriteRecipe(favorites: FavoritesUiModel) =
         createFavoriteRecipeUseCase(favorites)
-//        favoriteRepository.insertFavoriteRecipes(favorites)
 
     suspend fun deleteFavoriteRecipe(favorites: FavoritesUiModel) =
         deleteFavoriteRecipeUseCase(favorites)
-//        favoriteRepository.deleteFavoriteRecipes(favorites)
 
 
     sealed class FavoriteUiState {
-        data class checkFavoriteRecipes(val favorites: List<Favorites>) : FavoriteUiState()
+        data class checkFavoriteRecipes(val favorites: List<FavoritesUiModel>) : FavoriteUiState()
         object Loading : FavoriteUiState()
     }
 }

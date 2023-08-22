@@ -2,9 +2,7 @@ package com.example.beechang.foodyfoodyfoody.recipe
 
 import androidx.lifecycle.viewModelScope
 import com.example.beechang.foodyfoodyfoody.base.BaseViewModel
-import com.example.beechang.foodyfoodyfoody.data.repository.RecipesRepository
 import com.example.beechang.foodyfoodyfoody.domain.GetFoodRecipesUseCase
-import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 import com.example.beechang.foodyfoodyfoody.model.ui.FoodyUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,7 +16,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecipesViewModel @Inject constructor(
-    private val recipesRepository: RecipesRepository ,
     private val getFoodRecipesUseCase: GetFoodRecipesUseCase
 ) : BaseViewModel() {
 
@@ -40,15 +37,6 @@ class RecipesViewModel @Inject constructor(
         }.collect { recipesList ->
             _recipeFlow.update { RecipeUiState.RecipesListUpdate(recipesList) }
         }
-
-//        recipesRepository.getRecipes(
-//        ).onStart {
-//            _recipeFlow.update { RecipeUiState.Loading }
-//        }.handleErrors { errorMassage ->
-//            _recipeFlow.update { RecipeUiState.ShowError(errorMassage) }
-//        }.collect { recipesList ->
-//            _recipeFlow.update { RecipeUiState.RecipesListUpdate(recipesList) }
-//        }
     }
 
     sealed class RecipeUiState {

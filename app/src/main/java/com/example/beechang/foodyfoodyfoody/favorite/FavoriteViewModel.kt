@@ -2,13 +2,9 @@ package com.example.beechang.foodyfoodyfoody.favorite
 
 import androidx.lifecycle.viewModelScope
 import com.example.beechang.foodyfoodyfoody.base.BaseViewModel
-import com.example.beechang.foodyfoodyfoody.data.repository.FavoriteRepository
-import com.example.beechang.foodyfoodyfoody.domain.CreateFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.domain.DeleteFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.domain.GetFavoriteRecipeUseCase
-import com.example.beechang.foodyfoodyfoody.model.Favorites
 import com.example.beechang.foodyfoodyfoody.model.ui.FavoritesUiModel
-import com.example.beechang.foodyfoodyfoody.recipe.RecipesViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,7 +16,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoriteViewModel @Inject constructor(
-    private val favoriteRepository: FavoriteRepository ,
     private val deleteFavoriteRecipeUseCase: DeleteFavoriteRecipeUseCase ,
     private val getFavoriteRecipeUseCase: GetFavoriteRecipeUseCase ,
 ) : BaseViewModel() {
@@ -30,7 +25,6 @@ class FavoriteViewModel @Inject constructor(
 
      suspend fun readFavoriteRecipes() {
          getFavoriteRecipeUseCase.invoke()
-//        favoriteRepository.selectFavoriteRecipes()
             .map { favorites ->
                 if (favorites.isEmpty()){
                     FavoriteUiState.FavoriteEmpty
@@ -48,7 +42,6 @@ class FavoriteViewModel @Inject constructor(
     fun deleteFavoriteRecipe(favorites: FavoritesUiModel) {
         viewModelScope.launch {
             deleteFavoriteRecipeUseCase(favorites)
-//            favoriteRepository.deleteFavoriteRecipes(favorites)
             readFavoriteRecipes()
         }
     }

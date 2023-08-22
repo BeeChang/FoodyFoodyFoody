@@ -70,7 +70,7 @@ class DetailsActivity : AppCompatActivity() {
                         is DetailViewModel.FavoriteUiState.Loading -> {}
                         is DetailViewModel.FavoriteUiState.checkFavoriteRecipes -> {
                             val favorite =
-                                uiState.favorites.firstOrNull { it.foodyResult.recipeId == args.result.recipeId }
+                                uiState.favorites.firstOrNull { it.foodyUiModel.recipeId == args.result.recipeId }
                             if (favorite != null) {
                                 savedRecipeId = favorite.id
                                 recipeSaved = true
