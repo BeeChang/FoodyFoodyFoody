@@ -1,5 +1,6 @@
-package com.example.beechang.foodyfoodyfoody.network
+package com.example.beechang.foodyfoodyfoody.network.foodRecipes
 
+import com.example.beechang.foodyfoodyfoody.network.API_KEY
 import com.skydoves.sandwich.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query

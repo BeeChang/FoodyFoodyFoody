@@ -1,4 +1,4 @@
-package com.example.beechang.foodyfoodyfoody.database
+package com.example.beechang.foodyfoodyfoody.database.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

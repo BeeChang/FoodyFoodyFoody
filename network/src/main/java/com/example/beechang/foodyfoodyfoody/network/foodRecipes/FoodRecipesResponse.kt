@@ -1,4 +1,4 @@
-package com.example.beechang.foodyfoodyfoody.network
+package com.example.beechang.foodyfoodyfoody.network.foodRecipes
 
 import com.example.beechang.foodyfoodyfoody.model.FoodyResult
 import com.squareup.moshi.Json

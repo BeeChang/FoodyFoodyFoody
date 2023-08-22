@@ -1,5 +1,7 @@
 package com.example.beechang.foodyfoodyfoody.network
 
+import com.example.beechang.foodyfoodyfoody.network.foodRecipes.FoodRecipesResponse
+import com.example.beechang.foodyfoodyfoody.network.foodRecipes.FoodRecipesService
 import com.example.beechang.foodyfoodyfoody.test.MainDispatcherRule
 import com.example.beechang.foodyfoodyfoody.test.MockData
 import com.skydoves.sandwich.ApiResponse

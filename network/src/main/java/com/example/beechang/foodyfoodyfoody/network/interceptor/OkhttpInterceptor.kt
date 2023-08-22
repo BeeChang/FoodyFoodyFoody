@@ -1,4 +1,4 @@
-package com.example.beechang.foodyfoodyfoody.network
+package com.example.beechang.foodyfoodyfoody.network.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

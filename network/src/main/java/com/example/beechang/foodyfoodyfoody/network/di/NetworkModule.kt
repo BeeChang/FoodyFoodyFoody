@@ -1,5 +1,10 @@
-package com.example.beechang.foodyfoodyfoody.network
+package com.example.beechang.foodyfoodyfoody.network.di
 
+import com.example.beechang.foodyfoodyfoody.network.BASE_URL
+import com.example.beechang.foodyfoodyfoody.network.BuildConfig
+import com.example.beechang.foodyfoodyfoody.network.foodRecipes.FoodRecipesRetrofitClient
+import com.example.beechang.foodyfoodyfoody.network.foodRecipes.FoodRecipesService
+import com.example.beechang.foodyfoodyfoody.network.interceptor.OkhttpInterceptor
 import com.skydoves.sandwich.adapters.ApiResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides

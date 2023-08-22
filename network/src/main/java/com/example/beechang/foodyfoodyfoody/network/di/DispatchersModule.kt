@@ -1,5 +1,7 @@
-package com.example.beechang.foodyfoodyfoody.network
+package com.example.beechang.foodyfoodyfoody.network.di
 
+import com.example.beechang.foodyfoodyfoody.network.Dispatcher
+import com.example.beechang.foodyfoodyfoody.network.FoodyDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

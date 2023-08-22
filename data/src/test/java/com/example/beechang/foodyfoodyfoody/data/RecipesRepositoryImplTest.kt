@@ -2,9 +2,9 @@ package com.example.beechang.foodyfoodyfoody.data
 
 import app.cash.turbine.test
 import com.example.beechang.foodyfoodyfoody.data.repository.RecipesRepositoryImpl
-import com.example.beechang.foodyfoodyfoody.network.FoodRecipesResponse
-import com.example.beechang.foodyfoodyfoody.network.FoodRecipesRetrofitClient
-import com.example.beechang.foodyfoodyfoody.network.FoodRecipesService
+import com.example.beechang.foodyfoodyfoody.network.foodRecipes.FoodRecipesResponse
+import com.example.beechang.foodyfoodyfoody.network.foodRecipes.FoodRecipesRetrofitClient
+import com.example.beechang.foodyfoodyfoody.network.foodRecipes.FoodRecipesService
 import com.example.beechang.foodyfoodyfoody.test.MainDispatcherRule
 import com.example.beechang.foodyfoodyfoody.test.MockData
 import com.nhaarman.mockitokotlin2.atLeastOnce
@@ -12,7 +12,6 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
 import com.nhaarman.mockitokotlin2.whenever
 import com.skydoves.sandwich.ApiResponse
-import junit.framework.Assert
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*

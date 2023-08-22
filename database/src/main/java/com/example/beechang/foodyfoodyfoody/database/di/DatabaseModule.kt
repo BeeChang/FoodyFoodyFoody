@@ -1,7 +1,11 @@
-package com.example.beechang.foodyfoodyfoody.database
+package com.example.beechang.foodyfoodyfoody.database.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.beechang.foodyfoodyfoody.database.DATABASE_NAME
+import com.example.beechang.foodyfoodyfoody.database.recipe.RecipesDatabase
+import com.example.beechang.foodyfoodyfoody.database.recipe.TypeResponseConverter
+import com.example.beechang.foodyfoodyfoody.database.recipe.migration1to2
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

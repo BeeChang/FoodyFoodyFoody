@@ -1,8 +1,8 @@
 package com.example.beechang.foodyfoodyfoody.data.repository
 
-import com.example.beechang.foodyfoodyfoody.database.RecipesDao
-import com.example.beechang.foodyfoodyfoody.database.asDomain
-import com.example.beechang.foodyfoodyfoody.database.asEntity
+import com.example.beechang.foodyfoodyfoody.database.recipe.RecipesDao
+import com.example.beechang.foodyfoodyfoody.database.mapper.asDomain
+import com.example.beechang.foodyfoodyfoody.database.mapper.asEntity
 import com.example.beechang.foodyfoodyfoody.model.Favorites
 import com.example.beechang.foodyfoodyfoody.network.Dispatcher
 import com.example.beechang.foodyfoodyfoody.network.FoodyDispatchers

@@ -1,5 +1,6 @@
-package com.example.beechang.foodyfoodyfoody.database
+package com.example.beechang.foodyfoodyfoody.database.mapper
 
+import com.example.beechang.foodyfoodyfoody.database.entity.FavoritesEntity
 import com.example.beechang.foodyfoodyfoody.model.Favorites
 
 object FavoriteEntityMapper : EntityMapper<Favorites, FavoritesEntity> {

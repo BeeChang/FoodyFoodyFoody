@@ -1,7 +1,6 @@
-package com.example.beechang.foodyfoodyfoody.network
+package com.example.beechang.foodyfoodyfoody.network.foodRecipes
 
 import com.skydoves.sandwich.ApiResponse
-import retrofit2.Response
 import javax.inject.Inject
 
 class FoodRecipesRetrofitClient @Inject constructor(

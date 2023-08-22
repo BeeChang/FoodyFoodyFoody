@@ -1,4 +1,4 @@
-package com.example.beechang.foodyfoodyfoody.database
+package com.example.beechang.foodyfoodyfoody.database.recipe
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
