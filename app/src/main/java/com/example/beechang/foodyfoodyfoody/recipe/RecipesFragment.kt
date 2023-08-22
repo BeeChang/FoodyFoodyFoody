@@ -55,7 +55,7 @@ class RecipesFragment : BaseFragment<FragmentRecipesBinding>(R.layout.fragment_r
 
     private fun recipeUiState() {
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
                 recipesViewModel.recipesState.collect { uiState ->
                     when (uiState) {
                         is RecipesViewModel.RecipeUiState.Loading -> {
