@@ -50,6 +50,7 @@ android {
 dependencies {
     implementation(project(":model"))
     implementation(project(":data"))
+    implementation(project(":domain"))
     implementation(project(":test"))
 
 // unit test
