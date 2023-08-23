@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -79,8 +80,10 @@ class DetailsActivity : AppCompatActivity() {
                                 }
                             }
                         }
+                        is DetailViewModel.FavoriteUiState.ShowError -> {
+                            Toast.makeText(this@DetailsActivity, uiState.errorMassage, Toast.LENGTH_SHORT).show()
+                        }
                     }
-
                 }
             }
         }

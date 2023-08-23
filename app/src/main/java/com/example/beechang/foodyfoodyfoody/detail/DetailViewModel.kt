@@ -6,6 +6,7 @@ import com.example.beechang.foodyfoodyfoody.domain.CreateFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.domain.DeleteFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.domain.GetFavoriteRecipeUseCase
 import com.example.beechang.foodyfoodyfoody.model.ui.FavoritesUiModel
+import com.example.beechang.foodyfoodyfoody.recipe.RecipesViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,6 +27,9 @@ class DetailViewModel @Inject constructor(
 
     suspend fun checkFavoriteRecipe() {
         getFavoriteRecipeUseCase.invoke()
+            .handleErrors {  errorMassage ->
+                _favorite.update { FavoriteUiState.ShowError(errorMassage) }
+            }
             .collect { favorites ->
                 _favorite.update {
                     FavoriteUiState.checkFavoriteRecipes(favorites)
@@ -43,5 +47,7 @@ class DetailViewModel @Inject constructor(
     sealed class FavoriteUiState {
         data class checkFavoriteRecipes(val favorites: List<FavoritesUiModel>) : FavoriteUiState()
         object Loading : FavoriteUiState()
+        data class ShowError(val errorMassage: String) : FavoriteUiState()
+
     }
 }
